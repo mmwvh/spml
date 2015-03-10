@@ -1,9 +1,6 @@
 package mst;
 
-import java.util.List;
-
 public class Node {
-	private List<Integer> connectedto;
 	private int key;
 	private final int number;
 	private Node parent;

@@ -3,6 +3,7 @@ package mst;
 import java.util.ArrayList;
 
 public class PrimMSTFinder {
+	private int timer = 1;
 
 	public MSTGraph find(Graph g) {
 		g.initialize();
@@ -33,6 +34,7 @@ public class PrimMSTFinder {
 			if (list.get(i).getKey() < min_key) {
 				min_key = list.get(i).getKey();
 				min_index = i;
+				timer++;
 			}
 		}
 		if (remove) {
@@ -40,5 +42,9 @@ public class PrimMSTFinder {
 		} else {
 			return list.get(min_index);
 		}
+	}
+	
+	public int getTimer(){
+		return this.timer;
 	}
 }
