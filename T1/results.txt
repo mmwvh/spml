@@ -1,0 +1,9 @@
+;; This buffer is for notes you don't want to save, and for Lisp evaluation.
+;; If you want to create a file, visit that file with C-x C-f,
+;; then enter the text in that file's own buffer.
+
+
+Complete, 20 nodes, random(0, 99) = 27566325
+Complete, 20 nodes, all weights equal = 16414360
+Complete, 200 nodes, random(0, 99) = 2273414294
+Complete, 200 nodes, all weight equal = 2113035998
