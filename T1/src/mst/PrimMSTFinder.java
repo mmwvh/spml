@@ -3,8 +3,15 @@ package mst;
 import java.util.ArrayList;
 
 public class PrimMSTFinder {
-	private int timer = 1;
+	private int timer = 0;
 
+	/**
+	 * Returns a graph representation of a minimal spanning tree in graph g.
+	 * 
+	 * @param g
+	 *            Connected graph g
+	 * @return
+	 */
 	public MSTGraph find(Graph g) {
 		g.initialize();
 		ArrayList<Node> queue = g.getNodes();
@@ -17,7 +24,6 @@ public class PrimMSTFinder {
 						.getNumber(), min.getKey()));
 			}
 			for (Node n : g.getSuccessors(min)) {
-
 				if (queue.contains(n) && g.getWeightEdge(min, n) < n.getKey()) {
 					queue.get(queue.indexOf(n)).setParent(min);
 					queue.get(queue.indexOf(n)).setKey(g.getWeightEdge(min, n));
@@ -28,6 +34,16 @@ public class PrimMSTFinder {
 		return mst;
 	}
 
+	/**
+	 * Returns the least
+	 * 
+	 * @param list
+	 *            The list in which to search for the lowest value.
+	 * @param remove
+	 *            If set to true, the lowest value in the list will be returned
+	 *            AND removed.
+	 * @return
+	 */
 	public Node getMin(ArrayList<Node> list, boolean remove) {
 		int min_index = 0;
 		int min_key = Integer.MAX_VALUE;

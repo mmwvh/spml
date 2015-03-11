@@ -5,18 +5,30 @@ import java.util.ArrayList;
 public class SPML1 {
 
 	public static void main(String[] args) {
-		//Graph g = customGraph();
-		
-		Graph g = new CompleteGraph(20, false);
-		PrimMSTFinder finder = new PrimMSTFinder();
-		
-		long start = System.nanoTime();
-		MSTGraph mstg = finder.find(g);
-		long dif = System.nanoTime() - start;
-		System.out.print("Tree cost: " + mstg.getTreeCost() + "\n" + mstg);
-		System.out.print("Done within " + dif + " nano seconds");
+		// Use this to create a custom graph:
+		// Graph g = customGraph();
+		int i = 0;
+		int time = 0;
+		int edge = 0;
+		final int ITERATIONS = 42;
+		while (i < ITERATIONS) {
+			// Generates a complete graph.
+			Graph g = new CompleteGraph(40, true, 8, 1);
+			PrimMSTFinder finder = new PrimMSTFinder();
+			MSTGraph mstg = finder.find(g);
+			// System.out.print("Tree cost: " + mstg.getTreeCost() + "\n" +
+			// mstg);
+			time += finder.getTimer();
+			i++;
+			edge += g.getEdges().size();
+
+		}
+		System.out
+				.print("Done within " + (double) time / ITERATIONS
+						+ " iterations.\nNumber of edgs: " + (double) edge
+						/ ITERATIONS);
 	}
-	
+
 	public static Graph customGraph() {
 		ArrayList<Node> nodes = new ArrayList<Node>();
 		nodes.add(new Node(0));
@@ -60,7 +72,7 @@ public class SPML1 {
 		edges.add(new Edge(13, 14, 8));
 		edges.add(new Edge(14, 12, 9));
 		edges.add(new Edge(14, 16, 11));
-		
+
 		return new Graph(nodes, edges);
 	}
 }

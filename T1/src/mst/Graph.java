@@ -52,6 +52,13 @@ public class Graph {
 		return list;
 	}
 
+	/**
+	 * Gets the weight of the edge between n and m.
+	 * 
+	 * @param n
+	 * @param m
+	 * @return the weight of the edge between n and m.
+	 */
 	public int getWeightEdge(Node n, Node m) {
 		for (Edge e : edgeslist) {
 			if (e.connects(n, m)) {
@@ -61,22 +68,10 @@ public class Graph {
 		return 0;
 	}
 
-	public int getDestinationNode(Node n, int weight) {
-		for (Node node : nodeslist) {
-			for (Edge e : edgeslist) {
-				if (e.connects(n, node)) {
-					System.out.print("BLA");
-					if (e.getWeight() == weight) {
-						System.out.print("BOE");
-						return node.getNumber();
-					}
-				}
-
-			}
-		}
-		return -1;
-	}
-
+	/**
+	 * Initializes the graph: Sets the parent of every node to null and sets a
+	 * random node as start node.
+	 */
 	public void initialize() {
 		for (Node node : nodeslist) {
 			node.setKey(Integer.MAX_VALUE);
