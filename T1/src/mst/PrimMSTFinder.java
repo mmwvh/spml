@@ -17,6 +17,7 @@ public class PrimMSTFinder {
 						.getNumber(), min.getKey()));
 			}
 			for (Node n : g.getSuccessors(min)) {
+
 				if (queue.contains(n) && g.getWeightEdge(min, n) < n.getKey()) {
 					queue.get(queue.indexOf(n)).setParent(min);
 					queue.get(queue.indexOf(n)).setKey(g.getWeightEdge(min, n));
@@ -43,8 +44,8 @@ public class PrimMSTFinder {
 			return list.get(min_index);
 		}
 	}
-	
-	public int getTimer(){
+
+	public int getTimer() {
 		return this.timer;
 	}
 }
